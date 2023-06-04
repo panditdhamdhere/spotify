@@ -17,8 +17,9 @@ import { useRouter } from "next/navigation";
 const UploadModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const uploadModal = useUploadModal();
-  const { user } = useUser();
   const supabaseClient = useSupabaseClient();
+  const { user } = useUser();
+
   const router = useRouter();
 
   const { register, handleSubmit, reset } = useForm<FieldValues>({
@@ -27,7 +28,7 @@ const UploadModal = () => {
       title: "",
       song: null,
       image: null,
-    },
+    }
   });
 
   const onChange = (open: boolean) => {
